@@ -1,0 +1,83 @@
+.container {
+  margin-top: 70px;
+}
+.app-name-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.app-name {
+  font-size: 42px;
+  font-weight: 600;
+  color: rgb(80, 59, 128);
+}
+.login-container {
+  padding: 30px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(80, 59, 128, 0.8);
+}
+.login-container .save-button {
+  width: 100%;
+}
+h3 {
+  color: rgb(80, 59, 128);
+}
+h5 {
+  color: rgb(180, 180, 180);
+}
+
+label {
+  font-size: 15px;
+  color: rgb(35, 22, 67);
+  float: left;
+}
+/* input, textarea {
+    font-size: 14px;
+    background-color: rgb(25, 25, 25);
+    border: none;
+    color: rgb(180, 180, 180);
+    border-left: 4px solid rgb(65, 117, 158);;
+  } */
+.form-control {
+  font-size: 14px;
+  border-left: 4px solid rgb(80, 59, 128);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: none;
+  border-left: none;
+  border-bottom: 3px solid rgb(78, 55, 132);
+}
+div a {
+  color: rgb(80, 59, 128);
+  font-size: 14px;
+}
+div a:hover {
+  cursor: pointer;
+}
+.btn {
+  border: none;
+  background-color: rgb(80, 59, 128);
+  color: #f2eef7;
+}
+button{
+  border: none;
+  background-color: rgb(80, 59, 128);
+  color: #f2eef7;
+}
+.btn:hover {
+  background-color: transparent;
+  color: rgb(80, 59, 128);
+  box-shadow: 0 0 8px rgba(80, 59, 128);
+}
+.success-message {
+  color: green;
+  margin-top: 8px;
+  font-size: 13px;
+}
+.error-message {
+  color: red;
+  margin-top: 8px;
+  font-size: 13px;
+}

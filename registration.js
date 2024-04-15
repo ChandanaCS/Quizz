@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
+import "./registration.css";
+import { Link } from "react-router-dom";
 
 // Functional component for Registration Form
 const RegistrationForm = ({
@@ -11,75 +13,179 @@ const RegistrationForm = ({
 }) => {
   return (
     <Fragment>
-      <div>Registration</div>
-      <label>Name</label>
-      <input
-        type="text"
-        id="Name"
-        placeholder="Enter Name"
-        value={formData.Name}
-        onChange={handleInputChange}
-      />
-      <br />
-      <br />
-      <label>Email Id</label>
-      <input
-        type="email"
-        id="EmailId"
-        placeholder="Enter Email Id"
-        value={formData.EmailId}
-        onChange={handleInputChange}
-      />
-      <br />
-      <br />
-      <label>Password</label>
-      <input
-        type="password"
-        id="Password"
-        placeholder="Enter Password"
-        value={formData.Password}
-        onChange={handleInputChange}
-      />
-      {errors.password && <span className="error">{errors.password}</span>}
-      <br />
-      <label>Confirm Password</label>
-      <input
-        type="password"
-        id="confirmPassword"
-        placeholder="Re-Enter Password"
-        value={formData.confirmPassword}
-        onChange={handleInputChange}
-      />
-      {errors.confirmPassword && (
-        <span className="error">{errors.confirmPassword}</span>
-      )}
-      <br />
-      <label>Organisation</label>
-      <select
-        id="OrganisationName"
-        value={formData.OrganisationName}
-        onChange={handleInputChange}
-      >
-        <option value="">Select Organisation</option>
-        {organisations.map((org) => (
-          <option key={org.id} value={org.name}>
-            {org.name}
-          </option>
-        ))}
-      </select>
-      <br />
-      <br />
-      <label>Phone No</label>
-      <input
-        type="text"
-        id="PhoneNo"
-        placeholder="Enter Phone No"
-        value={formData.PhoneNo}
-        onChange={handleInputChange}
-      />
-      <br />
-      <br />
-      <button onClick={handleSave}>Save</button>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-7">
+            <div className="login-container well">
+              <h3 className="text-center">
+                <strong>Register</strong>
+              </h3>
+              <h5 className="text-center">Create an account</h5>
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <label htmlFor="Name" className="d-block">
+                      <strong>Name</strong>
+                    </label>
+                    <input
+                      className="form-control input-field"
+                      type="text"
+                      id="Name"
+                      placeholder="Enter Name"
+                      value={formData.Name}
+                      onChange={handleInputChange}
+                    />
+                    {errors.Name && (
+                      <span className="error-message">{errors.Name}</span>
+                    )}
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <label htmlFor="EmailId" className="d-block">
+                      <strong>Email Id</strong>
+                    </label>
+                    <input
+                      className="form-control input-field"
+                      type="email"
+                      id="EmailId"
+                      placeholder="Enter Email Id"
+                      value={formData.EmailId}
+                      onChange={handleInputChange}
+                    />
+                    {errors.EmailId && (
+                      <span className="error-message">{errors.EmailId}</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <label htmlFor="Password" className="d-block">
+                      <strong>Password</strong>
+                    </label>
+                    <input
+                      className="form-control input-field"
+                      type="password"
+                      id="Password"
+                      placeholder="Enter Password"
+                      value={formData.Password}
+                      onChange={handleInputChange}
+                    />
+
+                    {errors.password && (
+                      <span className="error-message">{errors.password}</span>
+                    )}
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <label htmlFor="confirmPassword" className="d-block">
+                      <strong>Confirm Password</strong>
+                    </label>
+                    <input
+                      className="form-control input-field"
+                      type="password"
+                      id="confirmPassword"
+                      placeholder="Re-Enter Password"
+                      value={formData.confirmPassword}
+                      onChange={handleInputChange}
+                    />
+                    {errors.confirmPassword && (
+                      <span className="error-message">
+                        {errors.confirmPassword}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <label htmlFor="OrganisationName" className="d-block">
+                      <strong>Organisation</strong>
+                    </label>
+                    {formData.OrganisationName === "Others" ? (
+                      <input
+                        type="text"
+                        className="form-control input-field"
+                        id="OrganisationName"
+                        value={formData.OtherOrganisationName}
+                        onChange={handleInputChange}
+                        placeholder="Enter Organisation Name"
+                      />
+                    ) : (
+                      <select
+                        className="form-control input-field"
+                        id="OrganisationName"
+                        value={formData.OrganisationName}
+                        onChange={handleInputChange}
+                      >
+                        <option value="">Select Organisation</option>
+                        {organisations.map((org) => (
+                          <option key={org.id} value={org.name}>
+                            {org.name}
+                          </option>
+                        ))}
+                        <option value="Others">Others</option>
+                      </select>
+                    )}
+                    {/* <select
+                      className="form-control input-field"
+                      id="OrganisationName"
+                      value={formData.OrganisationName}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">Select Organisation</option>
+                      {organisations.map((org) => (
+                        <option key={org.id} value={org.name}>
+                          {org.name}
+                        </option>
+                      ))}
+                    </select> */}
+                    {errors.OrganisationName && (
+                      <span className="error-message">
+                        {errors.OrganisationName}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <label htmlFor="PhoneNo" className="d-block">
+                      <strong>Phone No</strong>
+                    </label>
+                    <input
+                      className="form-control input-field"
+                      type="text"
+                      id="PhoneNo"
+                      placeholder="Enter Phone No"
+                      value={formData.PhoneNo}
+                      onChange={handleInputChange}
+                    />
+                    {errors.PhoneNo && (
+                      <span className="error-message">{errors.PhoneNo}</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div className="text-center">
+                <button
+                  onClick={handleSave}
+                  className="btn btn-primary save-button"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 };
@@ -103,7 +209,7 @@ class Registration extends Component {
     };
   }
 
-  async componentDidMount() { 
+  async componentDidMount() {
     try {
       const response = await axios.get(
         "https://localhost:7068/api/user/GetOrganisation"
@@ -118,34 +224,48 @@ class Registration extends Component {
   //to dynamically update the component's state (formData) based on user input.
   handleInputChange = (e) => {
     const { id, value } = e.target;
-    this.setState((prevState) => ({ // previous state as argument
+    this.setState((prevState) => ({
+      // previous state as argument
       formData: {
-        ...prevState.formData,  //(spread) ... operator -> to create new obj and copying the existing formData
+        ...prevState.formData, //(spread) ... operator -> to create new obj and copying the existing formData
         [id]: value, // and then updating
       },
     }));
   };
+  
 
   validateForm = () => {
-    const { Password, confirmPassword } = this.state.formData;
+    const { Name, EmailId, OrganisationName,Password, confirmPassword,PhoneNo } = this.state.formData;
     const errors = {};
-
-    if (!Password) {
-      errors.password = "Password is required";
-    } else if (Password.length < 8 || Password.length > 16) {
-      errors.password = "Password must be between 8 to 16 characters in length";
-    } else if (!/[A-Z]/.test(Password)) {
-      errors.password = "Password must contain at least one uppercase letter";
-    } else if (!/[0-9]/.test(Password)) {
-      errors.password = "Password must contain at least one digit";
-    } else if (!/[^A-Za-z0-9]/.test(Password)) {
-      errors.password = "Password must contain at least one special character";
+    if(!Name){
+      errors.Name = "Name is required"
     }
+    if (!EmailId){
+      errors.EmailId = "Email Id is required"
+    }
+      if (!Password) {
+        errors.password = "Password is required";
+      } else if (Password.length < 8 || Password.length > 16) {
+        errors.password =
+          "Password must be between 8 to 16 characters in length";
+      } else if (!/[A-Z]/.test(Password)) {
+        errors.password = "Password must contain at least one uppercase letter";
+      } else if (!/[0-9]/.test(Password)) {
+        errors.password = "Password must contain at least one digit";
+      } else if (!/[^A-Za-z0-9]/.test(Password)) {
+        errors.password =
+          "Password must contain at least one special character";
+      }
 
     if (Password !== confirmPassword) {
       errors.confirmPassword = "Passwords do not match";
     }
-
+    if (!OrganisationName){
+      errors.OrganisationName = "Organistion is required";
+    }
+    if (!PhoneNo){
+      errors.PhoneNo = "Phone Number is required";
+    }
     this.setState({ errors });
     return Object.keys(errors).length === 0; // Return true if no errors
   };
@@ -157,13 +277,13 @@ class Registration extends Component {
       // data object to send to the server
       const { Name, EmailId, Password, OrganisationName, PhoneNo } =
         this.state.formData;
-    //   const data = {
-    //     Name,
-    //     EmailId,
-    //     Password,
-    //     OrganisationName,
-    //     PhoneNo,
-    //   };
+      //   const data = {
+      //     Name,
+      //     EmailId,
+      //     Password,
+      //     OrganisationName,
+      //     PhoneNo,
+      //   };
 
       const url = "https://localhost:7068/api/user/RegisterForm";
       console.log(Name);
@@ -190,7 +310,12 @@ class Registration extends Component {
           }
         })
         .catch((error) => {
-          alert("Error occurred while saving data: " + error);
+          if (error.response.status === 409) {
+            // Conflict error - Email ID already exists
+            alert("Email ID already exists... Try Loging In");
+          } else {
+            alert("Error occurred while saving data: " + error);
+          }
         });
     }
   };
