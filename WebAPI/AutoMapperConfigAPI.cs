@@ -15,6 +15,10 @@ namespace WebAPI
                 cfg.CreateMap<UserModel, UserDTO>();
                 cfg.CreateMap<OrganisationDTO, OrganisationModel>();
                 cfg.CreateMap<OrganisationModel, OrganisationDTO>();
+                cfg.CreateMap<CategoryDTO, CategoryModel>();
+                cfg.CreateMap<CategoryModel, CategoryDTO>();
+                cfg.CreateMap<QuestionModel,QuestionDTO>();
+                cfg.CreateMap<QuestionDTO,QuestionModel>();
             });
 
             Mapper = config.CreateMapper();

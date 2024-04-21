@@ -28,6 +28,10 @@ namespace WebAPI.Controllers
         {
             try
             {
+                if (_userService.IsEmailExists(EmailId))
+                {
+                    return Conflict("Email ID already exists");
+                }
                 var userDTO = new UserDTO
                 {
                     Name = Name,

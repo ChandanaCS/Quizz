@@ -23,6 +23,11 @@ namespace BLL
         {
             return context.Organisations.FirstOrDefault(o => o.Name == organisationName);
         }
+        public bool IsEmailExists(string email)
+        {
+            // Query the database to check if a user with the given email exists
+            return context.Users.Any(u => u.EmailId == email);
+        }
         public bool RegisterNewUser(UserDTO userDTO)
         {
             UserDAL userDAL = new UserDAL(context);

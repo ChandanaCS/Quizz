@@ -19,6 +19,10 @@ namespace BLL
                 cfg.CreateMap<UserDTO, User>();
                 cfg.CreateMap<Organisation,OrganisationDTO>();
                 cfg.CreateMap<OrganisationDTO, Organisation>();
+                cfg.CreateMap<Category, CategoryDTO>();
+                cfg.CreateMap<CategoryDTO, Category>();
+                cfg.CreateMap<Question, QuestionDTO>();
+                cfg.CreateMap<QuestionDTO, Question>();
             });
 
             Mapper = config.CreateMapper();

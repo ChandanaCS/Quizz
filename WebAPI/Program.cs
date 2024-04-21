@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<UserService>();
-builder.Services.AddControllers();
+builder.Services.AddScoped<CreateQuizService>();
+builder.Services.AddControllers(); 
 
 //Dependency Injection for DB context class
 builder.Services.AddDbContext<QuizDBContext>(options =>
