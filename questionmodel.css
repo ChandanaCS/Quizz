@@ -1,0 +1,125 @@
+/* Modal styles */
+.question-modal {
+  font-family: Arial, sans-serif;
+}
+
+
+.question-modal .modal-content {
+  height: auto; /* Allow modal content to grow vertically */
+}
+
+.question-modal .modal-body {
+  max-height: calc(100vh - 200px); /* Set max height based on viewport height */
+  word-wrap: break-word; /* Allow long words to wrap */
+}
+
+
+.question-modal .modal-body {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
+.question-modal .modal-content {
+  height: auto; /* Allow modal content to grow vertically */
+}
+
+.question-modal .modal-dialog {
+  max-width: 80vw; /* Set maximum width of modal dialog */
+}
+
+.question-modal .modal-body p {
+  white-space: pre-line; /* Allow text to wrap and break lines */
+}
+
+
+
+.question-modal .modal-content {
+  border-radius: 10px;
+}
+
+.question-modal .modal-header {
+  background-color: rgb(80, 59, 128);
+  color: #fff;
+  border-bottom: none;
+}
+
+.question-modal .modal-title {
+  font-size: 24px;
+}
+
+.question-modal .modal-body {
+  padding: 20px;
+}
+
+.question-modal .question-list {
+  margin-bottom: 20px;
+}
+
+.question-modal .question-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.question-modal .question-item:hover {
+  background-color: #f8f9fa;
+}
+
+.question-modal .question-text {
+  font-size: 16px;
+}
+
+.question-modal .question-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.question-modal .pagination {
+  margin-top: 20px;
+}
+
+.question-modal .page-item {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.question-modal .page-link {
+  padding: 5px 10px;
+  color: rgb(80, 59, 128);
+  border: 1px solid rgb(80, 59, 128);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.question-modal .page-link:hover {
+  background-color: rgb(80, 59, 128);
+  color: #fff;
+}
+
+.question-modal .active .page-link {
+  background-color: rgb(80, 59, 128);
+  color: #fff;
+}
+
+.question-modal .modal-footer {
+  border-top: none;
+}
+
+.question-modal .btn-primary {
+  background-color: rgb(80, 59, 128);
+  border: none;
+}
+
+.question-modal .btn-primary:hover {
+  background-color: rgb(80, 59, 128);
+}
+
+.question-modal .btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+.question-modal .btn-secondary:hover {
+  background-color: #545b62;
+}
