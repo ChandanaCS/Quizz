@@ -26,9 +26,9 @@ namespace WebAPI.Controllers
             return categoryModels;
         }
         [HttpGet("CategoryQuestions")]
-        public List<QuestionModel> GetCategoryQuestions(int categoryId) 
+        public List<QuestionModel> GetCategoryQuestions(int categoryId,string organisationName) 
         {
-            List<QuestionDTO> questionDTOs = _createQuizService.GetCategoryQuestions(categoryId);
+            List<QuestionDTO> questionDTOs = _createQuizService.GetCategoryQuestions(categoryId, organisationName);
             List<QuestionModel> questionsModels = _mapper.Map<List<QuestionModel>>(questionDTOs);
             return questionsModels;
         }

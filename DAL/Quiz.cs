@@ -18,6 +18,9 @@ namespace DAL
         [DefaultValue(true)]
         public bool AutoValidation { get; set; }
         [Required]
+        public int OrganisationId { get; set; }
+        public string Description { get; set; }
+        public string QuizCategory { get; set; }
         public DateTime StartDate { get; set; }
         [Required]
         public DateTime EndDate { get; set; }

@@ -25,10 +25,10 @@ namespace BLL
             List<CategoryDTO> caregoryDTOs = _mapper.Map<List<CategoryDTO>>(categories);
             return caregoryDTOs;
         }
-        public List<QuestionDTO> GetCategoryQuestions(int categoryId)
+        public List<QuestionDTO> GetCategoryQuestions(int categoryId,string organisation)
         {
             CreateQuizDAL createQuizDAL = new CreateQuizDAL(context);
-            List<Question> questions = createQuizDAL.GetCategoryQuestions(categoryId);
+            List<Question> questions = createQuizDAL.GetCategoryQuestions(categoryId,organisation);
             List<QuestionDTO> questionDTOs = _mapper.Map<List<QuestionDTO>>(questions);
             return questionDTOs;
         }

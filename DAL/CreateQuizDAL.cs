@@ -18,11 +18,20 @@ namespace DAL
             return context.QuizzifyCategories.ToList();
         }
         //return context.Organisations.FirstOrDefault(o => o.Name == organisationName);
-        public List<Question> GetCategoryQuestions(int categoryId)
+        //public List<Question> GetCategoryQuestions(int categoryId, string organisation)
+        public List<Question> GetCategoryQuestions(int categoryId, string organisation)
         {
-            return context.QuizzifyQuestions
-                      .Where(qq => qq.CategoryId == categoryId)
-                      .ToList();
+            Organisation org = context.Organisations.FirstOrDefault(o => o.Name == organisation);
+            //return context.QuizzifyQuestions
+            //          .Where(qq => qq.CategoryId == categoryId)
+            //          .ToList();
+            var query = from qq in context.QuizzifyQuestions
+                        join u in context.Users on qq.UserId equals u.Id
+                        where (u.OrganisationId == org.Id && qq.CategoryId == categoryId)
+                        select qq;
+
+            var result = query.ToList();
+            return result;
         }
     }
 }

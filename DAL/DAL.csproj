@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20240413093211_InitialCreate.cs" />
+    <Compile Remove="Migrations\20240413093211_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20240413180249_Nullable property update.cs" />
+    <Compile Remove="Migrations\20240413180249_Nullable property update.Designer.cs" />
+    <Compile Remove="Migrations\20240420064650_Quiz.cs" />
     <Compile Remove="Migrations\20240420064650_Quiz.Designer.cs" />
+    <Compile Remove="Migrations\20240420064810_Quiz1.cs" />
+    <Compile Remove="Migrations\20240420064810_Quiz1.Designer.cs" />
+    <Compile Remove="Migrations\QuizDBContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>

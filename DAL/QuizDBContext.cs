@@ -62,57 +62,57 @@ namespace DAL
             //});
 
 
-            modelBuilder.Entity<Quiz>(entity =>
-            {
-                entity.HasKey(q => q.Id);
-                entity.Property(q => q.IsEnable).HasDefaultValue(true);
-                entity.Property(q => q.AutoValidation).HasDefaultValue(true);
-                entity.HasOne(q => q.User).WithMany().HasForeignKey(q => q.UserId);
-                entity.Property(q => q.TotalMarks)
-                      .HasColumnType("decimal(18,2)")
-                      .IsRequired();
-            });
-            modelBuilder.Entity<QuizQuestion>(entity =>
-            {
-                entity.HasKey(qq => qq.Id);
-                // Define relationships
-                entity.HasOne(qq => qq.Category)
-                      .WithMany()
-                      .HasForeignKey(qq => qq.CategoryId)
-                      .OnDelete(DeleteBehavior.NoAction);
+            //modelBuilder.Entity<Quiz>(entity =>
+            //{
+            //    entity.HasKey(q => q.Id);
+            //    entity.Property(q => q.IsEnable).HasDefaultValue(true);
+            //    entity.Property(q => q.AutoValidation).HasDefaultValue(true);
+            //    entity.HasOne(q => q.User).WithMany().HasForeignKey(q => q.UserId);
+            //    entity.Property(q => q.TotalMarks)
+            //          .HasColumnType("decimal(18,2)")
+            //          .IsRequired();
+            //});
+            //modelBuilder.Entity<QuizQuestion>(entity =>
+            //{
+            //    entity.HasKey(qq => qq.Id);
+            //    // Define relationships
+            //    entity.HasOne(qq => qq.Category)
+            //          .WithMany()
+            //          .HasForeignKey(qq => qq.CategoryId)
+            //          .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasOne(qq => qq.Question)
-                      .WithMany()
-                      .HasForeignKey(qq => qq.QuestionId)
-                      .OnDelete(DeleteBehavior.NoAction);
+            //    entity.HasOne(qq => qq.Question)
+            //          .WithMany()
+            //          .HasForeignKey(qq => qq.QuestionId)
+            //          .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasOne(qq => qq.Quiz)
-                      .WithMany()
-                      .HasForeignKey(qq => qq.QuizId)
-                      .OnDelete(DeleteBehavior.NoAction);
+            //    entity.HasOne(qq => qq.Quiz)
+            //          .WithMany()
+            //          .HasForeignKey(qq => qq.QuizId)
+            //          .OnDelete(DeleteBehavior.NoAction);
 
-                // Other configurations for QuizQuestion entity
-                entity.Property(qq => qq.Marks)
-                      .HasColumnType("decimal(18,2)")
-                      .IsRequired();
-            });
-            modelBuilder.Entity<QuizQuestion>()
-                .HasOne(q => q.Category)
-                .WithMany()
-                .HasForeignKey(q => q.CategoryId)
-                .OnDelete(DeleteBehavior.NoAction); // or DeleteBehavior.NoAction
+            //    // Other configurations for QuizQuestion entity
+            //    entity.Property(qq => qq.Marks)
+            //          .HasColumnType("decimal(18,2)")
+            //          .IsRequired();
+            //});
+            //modelBuilder.Entity<QuizQuestion>()
+            //    .HasOne(q => q.Category)
+            //    .WithMany()
+            //    .HasForeignKey(q => q.CategoryId)
+            //    .OnDelete(DeleteBehavior.NoAction); // or DeleteBehavior.NoAction
 
-            modelBuilder.Entity<QuizQuestion>()
-                .HasOne(q => q.Question)
-                .WithMany()
-                .HasForeignKey(q => q.QuestionId)
-                .OnDelete(DeleteBehavior.NoAction); // or DeleteBehavior.NoAction
+            //modelBuilder.Entity<QuizQuestion>()
+            //    .HasOne(q => q.Question)
+            //    .WithMany()
+            //    .HasForeignKey(q => q.QuestionId)
+            //    .OnDelete(DeleteBehavior.NoAction); // or DeleteBehavior.NoAction
 
-            modelBuilder.Entity<QuizQuestion>()
-                .HasOne(q => q.Quiz)
-                .WithMany()
-                .HasForeignKey(q => q.QuizId)
-                .OnDelete(DeleteBehavior.NoAction);
+            //modelBuilder.Entity<QuizQuestion>()
+            //    .HasOne(q => q.Quiz)
+            //    .WithMany()
+            //    .HasForeignKey(q => q.QuizId)
+            //    .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
